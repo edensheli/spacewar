@@ -1,0 +1,51 @@
+﻿<Window x:Class="SpaceWar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpaceWar"
+        mc:Ignorable="d"
+       Title="MainWindow" Height="800" Width="1200"
+        xmlns:myproj="clr-namespace:SpaceWar.views"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        AllowsTransparency="True" 
+        FontFamily="fonts/#Dosis"
+        KeyboardNavigation.DirectionalNavigation="None"
+>
+
+    <Window.Background>
+        <ImageBrush ImageSource="images/Background.png"/>
+    </Window.Background>
+    
+    <Border Style="{StaticResource windowStroke}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid  Grid.Column="2" MouseDown="DragWindow">
+                <StackPanel Margin="0,0,-8,0" Background="#0a1744">
+                    <StackPanel  Margin="0,20">
+                        <TextBlock Text="SPACEWAR" Style="{StaticResource menuLogo}"/>
+                        <TextBlock Text="E  .  R  .  M" Style="{StaticResource subMenuLogo}"/>
+                    </StackPanel>
+                    <Button Content="HOME" Style="{StaticResource btnMenu}" Click="GoHome" />
+                    <Button Content="PLAY" Style="{StaticResource btnMenu}" Click="GoPlay"/>
+                    <Button Content="SHOP" Style="{StaticResource btnMenu}" Click="GoShop"/>
+                    <Button Content="SETTINGS" Style="{StaticResource btnMenu}" Click="GoSettings"/>
+                </StackPanel>
+                <Button Content="Exit" Style="{StaticResource btnExit}" Click="Exit"/>
+            </Grid>
+            <Grid x:Name="Screens">
+            <myproj:Home  Visibility="Visible" />
+            <myproj:Play  Visibility="Hidden" />
+            <myproj:Shop  Visibility="Hidden" />
+            <myproj:SettingsView  Visibility="Hidden" />
+            </Grid>
+         
+        </Grid>
+    </Border>
+</Window>
+

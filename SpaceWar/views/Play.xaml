@@ -1,0 +1,48 @@
+﻿<UserControl x:Name="s" x:Class="SpaceWar.views.Play"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpaceWar.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000"
+              UseLayoutRounding="True" 
+             IsVisibleChanged="Refresh"
+             >
+    <UserControl.Background>
+        <ImageBrush
+            ImageSource="/SpaceWar;component/images/playBackgroud.png" 
+            Stretch="UniformToFill"/>
+    </UserControl.Background>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" >
+            <Border  Style="{StaticResource stroke}">
+                <Rectangle x:Name="ship" Height="200" Width="200" />
+            </Border>
+        </StackPanel>
+        <Border Grid.Column="2" Grid.Row="1"  Style="{StaticResource stroke}">
+            <StackPanel Style="{StaticResource centered}">
+                <TextBlock FontSize="45" Text="Best Level" Style="{StaticResource text}" />
+                <TextBlock FontSize="60" x:Name="bestLevel" Text="20" Style="{StaticResource text}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource playBorder}">
+            <Button 
+                Click="Button_Click" 
+                Style="{StaticResource btnPlay}"
+                Content="Play"/>
+        </Border>
+    </Grid>
+</UserControl>

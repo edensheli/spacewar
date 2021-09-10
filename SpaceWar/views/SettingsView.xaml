@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="SpaceWar.views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpaceWar.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600"
+             d:DesignWidth="800"
+             FontFamily="/fonts/#Dosis">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Settings"
+                   Style="{StaticResource text}"
+                   Margin="50,0,0,0"
+                   FontSize="100" 
+                   HorizontalAlignment="Left" />
+        <StackPanel  Grid.RowSpan="2" Grid.Column="0"  Style="{StaticResource centered}">
+            <TextBlock Text="General" Style="{StaticResource title}"/>
+            <Border  Style="{StaticResource stroke}" Width="400" Height="320">
+                <StackPanel>
+                    <StackPanel Margin="0,20" Style="{StaticResource centered}" Width="200">
+                        <TextBlock Text="Your Name" Style="{StaticResource text}"/>
+                        <TextBox x:Name="playerName"
+                         TextChanged="nameChange" 
+                         Style="{StaticResource textBox}"
+                         />
+                    </StackPanel>
+                    <StackPanel  Style="{StaticResource centered}" Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Text="Sound" Style="{StaticResource text}"/>
+                            <CheckBox Style="{StaticResource CircleCheckbox}" x:Name="sound" Checked="SoundOn" Unchecked="SoundOff"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="Music" Style="{StaticResource text}"/>
+                            <CheckBox Style="{StaticResource CircleCheckbox}" x:Name="music"  Checked="MusicOn" Unchecked="MusicOff"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel  Grid.Column="1" Grid.RowSpan="2" Style="{StaticResource centered}">
+            <TextBlock Text="Controls" Style="{StaticResource title}"/>
+            <Border  Style="{StaticResource stroke}" Width="400" Height="200">
+                <StackPanel  Style="{StaticResource centered}" Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="Attack" Style="{StaticResource text}"/>
+                        <CheckBox Style="{StaticResource CircleCheckbox}" 
+                                  x:Name="attack"
+                                  Checked="AttackWithMouse"
+                                  Unchecked="AttackWithKeyboard"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Move" Style="{StaticResource text}"/>
+                        <CheckBox Style="{StaticResource CircleCheckbox}"
+                                  x:Name="move"
+                                  Checked="MoveWithMouse" 
+                                  Unchecked="MoveWithKeyboard"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
